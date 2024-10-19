@@ -2,7 +2,7 @@ FROM node:18-alpine as builder
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm i --no-audit --no-fund --legacy-peer-deps
 
@@ -15,7 +15,7 @@ FROM node:18-alpine as runner
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm i --omit=dev  --no-audit --no-fund --legacy-peer-deps \ 
     && npm i -g pm2
