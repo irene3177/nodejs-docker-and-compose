@@ -2,22 +2,22 @@ FROM node:18-alpine as builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm ci --no-audit --no-fund --legacy-peer-deps
+RUN npm i --no-audit --no-fund --legacy-peer-deps
 
 COPY . .
 
 RUN npm run build
 
 
-FROM node:16-alpine as runner
+FROM node:18-alpine as runner
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm ci --omit=dev  --no-audit --no-fund --legacy-peer-deps \ 
+RUN npm i --omit=dev  --no-audit --no-fund --legacy-peer-deps \ 
     && npm i -g pm2
 
 COPY --from=builder /app/dist ./dist
