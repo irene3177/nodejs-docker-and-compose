@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i --no-audit --no-fund --legacy-peer-deps
+RUN npm ci --no-audit --no-fund --legacy-peer-deps
 
 COPY . .
 
@@ -17,7 +17,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i --omit=dev  --no-audit --no-fund --legacy-peer-deps \ 
+RUN npm ci --omit=dev  --no-audit --no-fund --legacy-peer-deps \ 
     && npm i -g pm2
 
 COPY --from=builder /app/dist ./dist
