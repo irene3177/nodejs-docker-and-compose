@@ -2,6 +2,6 @@
 
 IP адрес 158.160.27.139
 
-Frontend wishformore.nomorepartiesco.ru
+Frontend https://wishformore.nomorepartiesco.ru
 
-Backend api.wishformore.nomorepartiesco.ru
+Backend https://api.wishformore.nomorepartiesco.ru
